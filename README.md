@@ -58,3 +58,8 @@ In conclusion, this E-Learning Platform is a step toward digital education empow
 
 OUTPUT:
 
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/dbafd65c-ceb0-4113-b94a-20bce2d28aa0" />
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/e144d642-f1ff-4c82-81f9-e7fff29b2d3d" />
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/5ae32873-8af5-4bea-9ea9-1f247c0bd7af" />
