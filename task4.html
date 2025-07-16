@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CodTech E-Learning Platform</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      color: #333;
+    }
+
+    /* Splash screen */
+    #splash {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #0052cc;
+      color: white;
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    /* Main page */
+    #main {
+      display: none;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #main h2 {
+      margin-top: 0;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .categories button {
+      padding: 15px 25px;
+      font-size: 16px;
+      background: #0052cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .categories>div{
+        border: 2px solid #f0f2f5;
+       
+    }
+    .categories>div:hover{
+        background-color: #0052cc;
+        padding: 5px;
+        border: 20x solid #ddd;
+    }
+
+    /* Course page */
+    #coursePage {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    iframe {
+      width: 80%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .progress-container {
+      width: 80%;
+      background: #ddd;
+      border-radius: 20px;
+      margin: 20px auto;
+    }
+
+    .progress-bar {
+      height: 20px;
+      background: #28a745;
+      width: 0%;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      line-height: 20px;
+    }
+
+    .action-btn {
+      margin: 15px;
+      padding: 10px 20px;
+      background: #0052cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div id="splash">CodTech</div>
+
+  <!-- Main Page -->
+  <div id="main">
+    <h2>Welcome to CodTech E-Learning Platform</h2>
+        <p>Learn top skills from industry experts and grow your career. Pick a category to get started:</p>
+
+    <div class="categories">
+      <div id="datascience"><img src="https://thedesignlove.com/wp-content/uploads/2021/01/Data-science-logo-21.jpg" height="150px" width="140px"><br><button onclick="openviewPage('Data Science', 'Data Analytics Course', 'https://youtu.be/jS5gJigxhWI')">Data Science</button></div>
+      <div id="Buisinessanalytics"><img src="https://tse4.mm.bing.net/th/id/OIP.aMzJKHIg9mSvNSBePZB6oQHaEo?pid=Api&P=0&h=180" height="150px" width="170px"><br><button onclick="openCourse('Business Analytics', 'Business Analytics Course', 'https://www.youtube.com/embed/2I3pI9TMx6I')">Business Analytics</button></div>
+      <div id="Softwaredevelopment"><img src="https://tse4.mm.bing.net/th/id/OIP.dmMrRnnw7omRMqNLu4qqswHaE8?pid=Api&P=0&h=180"height="150px" width="210px"><br><button onclick="openCourse('Software Development', 'Frontend Development', 'https://www.youtube.com/embed/pQN-pnXPaVg')">Software Development</button></div>
+      <div id="cybersecurity"><img src="https://tse2.mm.bing.net/th/id/OIP.9b805kJYBkqNtaMIO_0BawAAAA?pid=Api&P=0&h=180"height="150px" width="150px"><br><button onclick="openCourse('Cyber Security', 'Cyber Security Course', 'https://www.youtube.com/embed/inWWhr5tnEA')">Cyber Security</button></div>
+      <div id="projectmanagement"><img src="https://tse4.mm.bing.net/th/id/OIP.DxkB45st4DyyVuK70Ed4fAHaFj?pid=Api&P=0&h=180"height="150px"width="195px"><br><button onclick="openCourse('Project Management', 'Project Management Course', 'https://www.youtube.com/embed/8I22dXW6w0I')">Project Management</button></div>
+      <div id="aiml"><img src="https://tse1.mm.bing.net/th/id/OIP.eUUpZVsMF8yAHi6uW44f5gHaD-?pid=Api&P=0&h=180"height="150px" width="105px"><br><button onclick="openCourse('AI & ML', 'AI & ML Course', 'https://www.youtube.com/embed/ukzFI9rgwfU')">AI & ML</button></div>
+      <div id="devops"><img src="https://tse2.mm.bing.net/th/id/OIP.aL1LqWuHlMDI1Yw_CWBBHAHaIc?pid=Api&P=0&h=180"height="150px" width="110px"><br><button onclick="openCourse('DevOps', 'DevOps Course', 'https://www.youtube.com/embed/0yWAtQ6wYNM')">DevOps</button></div>
+      <!--<div id="html"><img src="https://tse4.mm.bing.net/th/id/OIP.s5TSKci-kxNJLtwefzDEGAHaHa?pid=Api&P=0&h=180" height="150px" width="90px"><br><button onclick="openCourse('HTML' , 'html course' , 'https://youtu.be/3VY_z7x6SiA')">HTML</button></div>-->
+    </div>
+  </div>
+
+  <!-- Course Page-->
+  <div id="coursePage">
+    <h2 id="courseTitle"></h2>
+    <p id="courseDesc"></p>
+    <iframe id="courseVideo" src="" allowfullscreen></iframe>
+
+    <div id="markCompleteContainer" style="display: none;">
+      <button class="action-btn" onclick="markComplete()">Mark as Complete</button>
+    </div>
+
+    <div class="progress-container">
+      <div id="progressBar" class="progress-bar">0%</div>
+    </div>
+
+    <button class="action-btn" onclick="backToMain()">Back to Categories</button>
+  </div>
+  
+  <script>
+    // Splash screen to main after 2 sec
+    setTimeout(() => {
+      document.getElementById('splash').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+    }, 2000);
+
+    let videoFrame;
+    let progress = 0;
+
+    function openCourse(category, courseName, videoUrl) {
+      document.getElementById('main').style.display = 'none';
+      document.getElementById('coursePage').style.display = 'block';
+      document.getElementById('courseTitle').innerText = category;
+      document.getElementById('courseDesc').innerText = courseName;
+      videoFrame = document.getElementById('courseVideo');
+      videoFrame.src = videoUrl;
+      progress = 0;
+      updateProgress();
+      document.getElementById('markCompleteContainer').style.display = 'none';
+
+      // Detect when video ends
+      // Note: YouTube iframe API would be more robust, but here’s a simple trick:
+      // Just show the Mark Complete after 20 sec
+      setTimeout(() => {
+        document.getElementById('markCompleteContainer').style.display = 'block';
+      }, 10000); // adjust this time if needed
+    }
+
+    function markComplete() {
+      progress = 100;
+      updateProgress();
+      alert('Course marked as complete!');
+    }
+
+    function updateProgress() {
+      const bar = document.getElementById('progressBar');
+      bar.style.width = progress + '%';
+      bar.innerText = progress + '%';
+    }
+
+    function backToMain() {
+      document.getElementById('coursePage').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+      videoFrame.src = '';
+    }
+  </script>
+
+</body>
+</html>
